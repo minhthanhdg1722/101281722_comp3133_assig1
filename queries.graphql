@@ -1,0 +1,116 @@
+ mutation {  
+  register(
+    username: "thanhdgguser",
+     firstname: "thanhuser",
+    lastname: "duongs",
+    password: "123456",
+     email: "thanhqqqqs@gmail.com",
+     type: "customer"
+   ){
+     id
+     username
+     firstname
+     lastname
+     password
+     email
+    type
+   }
+ }
+
+
+query {
+  login(
+    username: "thanhdgg",
+    password: "123456"
+  ){
+    role
+  }
+}
+
+
+mutation {
+    addListing(
+        listing_id: "L001",
+        listing_title: "Sea face home for rent",
+        description: "max 1000-character description",
+        street: "171 Young Street",
+        city: "Toronto",
+        postal_code: "M1X0Y5",
+        price: 1000.00
+        email: "contact@hilton.com",
+        username: "thanhdgg",
+    ) {
+        listing_id
+    		listing_title
+    }
+}
+
+
+query {
+  getListings(username:"thanhdgg") {
+    id
+    listing_id
+    listing_title
+    description
+    street
+    city
+    postal_code
+    price
+    email
+    username
+  }
+}
+
+
+mutation {
+    addBooking(
+        listing_id: "L002"
+        booking_id: "B002"
+      	booking_end: "04-21-2022"
+      	username: "thanhdgg"
+        booking_start: "03-30-2022"
+    ){
+      id
+    }
+}
+
+
+query {
+  searchListingByName(name: "Sea face home for rent") {
+    id
+    listing_id
+    listing_title
+    description
+    street
+    city
+    postal_code
+    price
+    email
+    username
+  }
+}
+
+query {
+    getBookings(username: "thanhdgguser") {
+        listing_id
+        booking_id
+        booking_start
+        booking_end
+        username
+    } 
+}
+
+query {
+  getListings(username: "thanhdgg") {
+    id
+    listing_id
+    listing_title
+    description
+    street
+    city
+    postal_code
+    price
+    email
+    username
+  }
+}
